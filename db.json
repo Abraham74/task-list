@@ -17,6 +17,12 @@
       "text": "Cenar",
       "day": "Enero 4 a las 21:00",
       "reminder": false
+    },
+    {
+      "text": "Prueba",
+      "day": "10 am",
+      "reminder": true,
+      "id": 5
     }
   ]
 }
