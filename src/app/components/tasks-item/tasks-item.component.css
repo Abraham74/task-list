@@ -3,14 +3,44 @@
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
+  transition: border-left 0.3s ease;
 }
 
-.task.reminder{
+.task.reminder {
   border-left: 5px solid blue;
 }
 
-.task h3{
+.task h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 0;
+  font-size: 18px;
+}
+
+.task p {
+  margin: 5px 0 0;
+  color: #555;
+}
+
+.task fa-icon {
+  cursor: pointer;
+}
+
+.task:hover {
+  background-color: #e2e2e2;
+}
+
+@media (max-width: 600px) {
+  .task {
+    padding: 15px;
+  }
+
+  .task h3 {
+    font-size: 16px;
+  }
+
+  .task p {
+    font-size: 14px;
+  }
 }

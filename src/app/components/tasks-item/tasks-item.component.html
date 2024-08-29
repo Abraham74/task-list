@@ -1,16 +1,17 @@
 <div
   class="task"
-  [ngClass]="{reminder: task.reminder}"
-  (click)="onToggle(task)">
+  [ngClass]="{ 'reminder': task.reminder }"
+  (click)="onToggle(task)"
+  role="button"
+>
   <h3>
-    {{ task.text}}
+    {{ task.text }}
     <fa-icon
       [icon]="fatimes"
       [ngStyle]="{ color: 'red' }"
-      (click) = "onDelete(task)"
+      (click)="onDelete(task); $event.stopPropagation()"
+      role="button"
     ></fa-icon>
   </h3>
-  <p>
-    {{ task.day }}
-  </p>
+  <p>{{ task.day }}</p>
 </div>

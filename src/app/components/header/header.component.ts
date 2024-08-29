@@ -1,36 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UiService } from 'src/app/service/ui.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit, OnDestroy {
 
-  title:string = 'Lista de tareas';
+  title: string = 'Task List';
   showAddTask: boolean = false;
-  subscription?: Subscription;
+  subscription: Subscription;
 
   constructor(
-    private UiService:UiService,
-    private router:Router
+    private uiService: UiService,
+    private router: Router
   ) {
-    this.subscription = this.UiService.onToggle().subscribe(value => this.showAddTask = value);
+    this.subscription = this.uiService.onToggle().subscribe(value => this.showAddTask = value);
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
-  toggleAddTask(){
-    this.UiService.toggleAddTask();
+  toggleAddTask(): void {
+    this.uiService.toggleAddTask();
   }
 
-  hasRoute(route: string){
+  hasRoute(route: string): boolean {
     return this.router.url === route;
   }
 }

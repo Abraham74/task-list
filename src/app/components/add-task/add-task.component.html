@@ -2,23 +2,38 @@
   <div class="form-control">
     <label for="text">Task</label>
     <input
-    type="text"
-    name="text"
-    id="text"
-    placeholder="Add Task Text"
-    [(ngModel)]="text">
+      type="text"
+      name="text"
+      id="text"
+      placeholder="Add Task Text"
+      [(ngModel)]="text"
+      required
+      aria-required="true"
+    />
   </div>
 
   <div class="form-control">
-    <label for="text">Day & Hour</label>
-    <input type="text" name="day" id="day" placeholder="Add Day & Hour" [(ngModel)]="day">
+    <label for="day">Day & Hour</label>
+    <input
+      type="text"
+      name="day"
+      id="day"
+      placeholder="Add Day & Hour"
+      [(ngModel)]="day"
+      required
+      aria-required="true"
+    />
   </div>
 
-  <div class="form-control form-control-check" >
-    <label for="text">Reminder</label>
-    <input type="checkbox" name="reminder" id="reminder" [(ngModel)]="reminder">
+  <div class="form-control form-control-check">
+    <label for="reminder">Reminder</label>
+    <input
+      type="checkbox"
+      name="reminder"
+      id="reminder"
+      [(ngModel)]="reminder"
+    />
   </div>
 
   <input type="submit" value="Save Task" class="btn btn-block">
-
 </form>
